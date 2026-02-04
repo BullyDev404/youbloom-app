@@ -10,9 +10,7 @@ function Login() {
   const navigate = useNavigate();
 
   function onSubmit(data) {
-    console.log("submitted", data);
     if (Number(data.phone) === phone) {
-      console.log("success");
       toast.success("Login successful");
       login();
       navigate("/home");
@@ -22,31 +20,24 @@ function Login() {
   }
 
   return (
-    <div className="h-screen flex justify-center items-center">
-      <div className="bg-purple-200/50 rounded-2xl shadow-2xl flex flex-col w-fit p-10 h-120 justify-between pt-18">
-        <div className="flex flex-col gap-1">
-          <h1 className="text-3xl font-semibold tracking-tight">
-            Welcome Back
-          </h1>
-          <p className="text-base text-gray-500">Please enter your details</p>
+    <div className="min-h-screen flex justify-center items-center bg-gray-50 px-4">
+      <div className="bg-white rounded-lg shadow-lg flex flex-col gap-8 w-full max-w-md p-8 border border-gray-200">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-3xl font-bold text-gray-900">Welcome Back</h1>
+          <p className="text-base text-gray-600">Please enter your details</p>
         </div>
 
-        <form
-          className="flex flex-col justify-around "
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <label
-            className="text-md tracking-tight flex flex-col gap-5"
-            htmlFor="phone-number"
-          >
-            <p>Phone Number</p>
-            <span className="flex gap-3 items-center">
-              <p className="text-lg font-semibold">+254</p>
+        <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
+          <label className="flex flex-col gap-2" htmlFor="phone-number">
+            <p className="text-sm font-semibold text-gray-900">Phone Number</p>
+            <div className="flex gap-2 items-center">
+              <p className="text-base font-semibold text-gray-700">+254</p>
 
               <input
-                className="rounded-2xl h-10 w-70 focus:ring focus:border-purple-600 bg-white shadow-2xl p-3 "
+                className="flex-1 rounded-lg h-11 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-gray-50 border border-gray-300 p-3 text-sm"
                 id="phone"
                 type="text"
+                placeholder="9 digits"
                 {...register("phone", {
                   required: "Please input your phone number",
                   pattern: {
@@ -55,15 +46,17 @@ function Login() {
                   },
                 })}
               />
-            </span>
+            </div>
             {errors?.phone?.message && (
-              <p className="text-red-500">{errors.phone.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.phone.message}
+              </p>
             )}
           </label>
 
           <button
             type="submit"
-            className="mt-10 bg-purple-600 text-white rounded-md py-3 px-6 font-semibold shadow-2xl hover:bg-purple-500/90 cursor-pointer mx-auto w-full"
+            className="bg-purple-600 text-white rounded-lg py-3 px-6 font-semibold hover:bg-purple-700 transition w-full text-base"
           >
             Sign in
           </button>
@@ -72,5 +65,6 @@ function Login() {
     </div>
   );
 }
+
 
 export default Login;
