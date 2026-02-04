@@ -9,6 +9,7 @@ function AuthProvider({ children }) {
   );
   const initialState = {
     isAuthenticated,
+    phone: 712345678,
     login() {
       setIsAuthenticated(true);
       localStorage.setItem("isAuthenticated", "true");
