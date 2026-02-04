@@ -38,9 +38,9 @@ function Header({ search, setSearch }) {
 
   return (
     <nav className="flex justify-between items-center py-4">
-      <p className="font-bold text-3xl text-purple-900">YouBloom</p>
+      <p className="font-bold text-lg lg:text-3xl text-purple-900">YouBloom</p>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col md:flex-row items-center gap-4">
         <input
           type="text"
           className="bg-white border border-gray-300 rounded-lg h-10 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500"

@@ -20,7 +20,7 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-50 px-4">
+    <div className="h-screen flex justify-center items-center bg-gray-50 px-4">
       <div className="bg-white rounded-lg shadow-lg flex flex-col gap-8 w-full max-w-md p-8 border border-gray-200">
         <div className="flex flex-col gap-2">
           <h1 className="text-3xl font-bold text-gray-900">Welcome Back</h1>
